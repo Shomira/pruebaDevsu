@@ -1,0 +1,5 @@
+Ejercicio 1:
+
+- únicamente por temas de pruebas se implementó los escenarios en diferentes it. Sin embargo, lo ideal es realizarlo en un mismo it si la prueba forma a parte del mismo flujo.
+
+

@@ -27,18 +27,30 @@ describe('Flujo de compra', () => {
             expect(str).to.equal('Product added')
         })
     })
-
-    it('Visualizar carrito y llenar formulario de compra', () => {
+    it('Visualizar carrito', () => {
         // Ir al carrito
         cy.get('#cartur').click()
-        cy.contains('Place Order').click()
-        // Completar formulario de compra
-        cy.get('#name').type('Snra ')
+
+    })
+    it('Completa el formulario de compra y finalizar compra', () => {
+        // Ir al carrito
+        cy.get('#cartur').click()
+        cy.contains('Place Order').click();
+
+        cy.get('#name').type('Shomiiiii')
         cy.get('#country').type('Ecuador')
         cy.get('#city').type('ECU')
         cy.get('#card').type('09225R5354546')
         cy.get('#month').type('11')
         cy.get('#year').type('2025')
-    })
+        // Finalizar la compra
+        cy.contains('Purchase').click()
+
+        // Verificar mensaje de éxito
+        cy.get('.sweet-alert').should('be.visible')
+        cy.contains('OK').click()
+    });
+
+
 
 })
